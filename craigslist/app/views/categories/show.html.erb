@@ -2,7 +2,9 @@
 
 <% @articles.each do |article| %>
 <li>
-  <%= link_to article.title, category_article_path(article) %>
+  <%= link_to article.title, category_article_path(@category, article) %>
 
 </li>
 <% end %>
+
+<%= link_to 'Add an Article', new_category_article_path(@category)%>
