@@ -14,7 +14,12 @@ class ArticlesController < ApplicationController
     @article = @category.articles.new(article_params)
     @article.user_id = session[:user_id]
     if @article.save
-      redirect_to category_path(@category)
+      respond_to do |format|
+        format.html
+        format.json { render json: @article }
+        format.js { render 'articles/create' }
+      end
+      # redirect_to category_path(@category)
     else
       @errors = @article.errors.full_messages
       render 'new'
