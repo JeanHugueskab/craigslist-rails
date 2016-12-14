@@ -1,0 +1,9 @@
+<h1>Articles</h1>
+
+<ul class="article_container">
+  <% @articles.each do |article| %>
+    <%= render partial: 'articles/show', locals: { article: article } %>
+  <% end %>
+</ul>
+
+<%= link_to 'Add an Article', new_category_article_path(@category), remote: true, id: 'show_form_link'%>
