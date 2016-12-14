@@ -7,4 +7,4 @@
 </li>
 <% end %>
 
-<%= link_to 'Add an Article', new_category_article_path(@category)%>
+<%= link_to 'Add an Article', new_category_article_path(@category), remote: true, id: 'show_form_link'%>

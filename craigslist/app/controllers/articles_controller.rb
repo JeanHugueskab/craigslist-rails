@@ -2,6 +2,11 @@ class ArticlesController < ApplicationController
   def new
     @category = Category.find(params[:category_id])
     @article = @category.articles.new
+    respond_to do |format|
+      format.html
+      format.json { render json: @article }
+      format.js { render 'new'}
+    end
   end
 
   def create
